@@ -16,7 +16,7 @@ import { TripData } from "./[id]"
 import { Button } from "@/components/button"
 import { Modal } from "@/components/modal"
 import { Input } from "@/components/input"
-import { Loading } from "@/components/Loading"
+import { Loading } from "@/components/loading"
 import { Calendar } from "@/components/calendar"
 import { Activity, ActivityProps } from "@/components/activity"
 

@@ -1,4 +1,3 @@
-
 import {
   Calendar as RNCalendar,
   CalendarProps,

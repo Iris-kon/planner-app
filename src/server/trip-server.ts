@@ -1,4 +1,4 @@
-import { api } from './api'
+import { api } from "./api"
 
 export type TripDetails = {
   id: string
@@ -8,35 +8,39 @@ export type TripDetails = {
   is_confirmed: boolean
 }
 
-type TripCreate = Omit<TripDetails, 'id' | 'is_confirmed' > & {
-  email_to_invite: string[]
+type TripCreate = Omit<TripDetails, "id" | "is_confirmed"> & {
+  emails_to_invite: string[]
 }
 
 async function getById(id: string) {
   try {
     const { data } = await api.get<{ trip: TripDetails }>(`/trips/${id}`)
-
     return data.trip
-  } catch (err) {
-    throw err
+  } catch (error) {
+    throw error
   }
 }
 
-async function create({ destination, email_to_invite, starts_at, ends_at } : TripCreate) {
+async function create({
+  destination,
+  starts_at,
+  ends_at,
+  emails_to_invite,
+}: TripCreate) {
   try {
-    const { data } = await api.post<{ tripId: string }>('/trips/', {
-      destination, 
-      email_to_invite, 
-      starts_at, 
+    const { data } = await api.post<{ tripId: string }>("/trips", {
+      destination,
+      starts_at,
       ends_at,
-      owner_name: 'Iris',
-      owner_email: 'iris@email'
+      emails_to_invite,
+      owner_name: "User",
+      owner_email: "irisoliveira.k.on@gmail.com",
     })
 
     return data
-
-  } catch (err) {
-    throw err
+  } catch (error) {
+    console.log(JSON.stringify(error))
+    throw error
   }
 }
 
@@ -57,4 +61,4 @@ async function update({
   }
 }
 
-export const tripServer = { getById , create, update}
+export const tripServer = { getById, create, update }

@@ -1,3 +1,4 @@
+// Importação dos tokens para customizar o tema.
 import { colors } from "./src/styles/colors"
 import { fontFamily } from "./src/styles/fontFamily"
 
@@ -8,9 +9,8 @@ module.exports = {
   theme: {
     extend: {
       colors,
-      fontFamily
+      fontFamily,
     },
   },
   plugins: [],
 }
-

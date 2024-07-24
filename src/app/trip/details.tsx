@@ -15,11 +15,17 @@ import { TripLink, TripLinkProps } from "@/components/tripLink"
 import { Participant, ParticipantProps } from "@/components/participant"
 
 export function Details({ tripId }: { tripId: string }) {
+  // MODAL
   const [showNewLinkModal, setShowNewLinkModal] = useState(false)
+
+  // LOADING
   const [isCreatingLinkTrip, setIsCreatingLinkTrip] = useState(false)
 
+  // LITS
   const [links, setLinks] = useState<TripLinkProps[]>([])
   const [participants, setParticipants] = useState<ParticipantProps[]>([])
+
+  // DATA
   const [linkTitle, setLinkTitle] = useState("")
   const [linkURL, setLinkURL] = useState("")
 
